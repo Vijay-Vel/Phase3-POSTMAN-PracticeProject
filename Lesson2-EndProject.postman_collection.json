@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "d290651f-0e7d-4cfa-8c53-4ffdf329c5be",
+		"name": "Lesson2-EndProject",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30899534"
+	},
+	"item": [
+		{
+			"name": "OpenWeatherreq",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response time is less than 600ms\",function(){\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});\r",
+							"pm.test(\"Status code is 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code name has OK\", function(){\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"Content-Type is present\", function(){\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{Base_URL}}?appid=f69b95c892d3aefdeef8eaee2b050f2f&q={{City}}",
+					"host": [
+						"{{Base_URL}}"
+					],
+					"query": [
+						{
+							"key": "appid",
+							"value": "f69b95c892d3aefdeef8eaee2b050f2f"
+						},
+						{
+							"key": "q",
+							"value": "{{City}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
